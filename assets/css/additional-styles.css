@@ -1,0 +1,75 @@
+ .latest .item .title {
+     font-size: 21px;
+     margin-top: 0;
+     line-height: 1.2;
+     text-transform: capitalize;
+     margin-bottom: 0;
+ }
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-family: 'Mukta Vaani';
+     font-weight: normal;
+     color: #333;
+ }
+ .latest .item .title a {
+     color: #444;
+ }
+ .list ul li {
+     margin-bottom: 15px;
+     border-bottom: 1px solid #ddd;
+     padding-bottom: 15px;
+ }
+ .header {
+     padding: 10px 0;
+     background: #fff;
+     border: none;
+ }
+ .header .profile-content .name {
+     color: #49515a;
+     font-size: 32px;
+     margin-bottom: 5px;
+     margin-top: 15px;
+ }
+ .header .profile-content .desc {
+     color: #778492;
+     font-family: "Lato", arial, sans-serif;
+     font-weight: 400;
+     font-size: 18px;
+     margin-top: 0;
+     margin-bottom: 15px;
+ }
+ .header .btn {
+     margin-top: 25px;
+     font-weight: bold;
+ }
+ .sections-wrapper {
+     padding-top: 30px;
+     padding-bottom: 0px;
+ }
+ .latest .divider {
+     margin-bottom: 15px;
+     margin-top: 15px;
+ }
+ .latest .item {
+     margin-bottom: 15px;
+ }
+ .section .heading {
+     margin-top: 0;
+     margin-bottom: 30px;
+     color: #545e69;
+     font-size: 24px;
+     font-weight: bold;
+     background: #ddd;
+     padding: 5px;
+     text-align: center;
+ }
+ .section {
+     margin-bottom: 5px;
+ }
+ .footer {
+     margin-top: 50px;
+ }
