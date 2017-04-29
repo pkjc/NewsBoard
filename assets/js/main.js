@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
                 // the effect, which is used to let the entries appear
                 // default: 'show'
                 // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-                effect: 'slideSynced',
+                effect: 'slideFastSynced',
 
                 // outer template for the html transformation
                 // default: "<ul>{entries}</ul>"
@@ -47,9 +47,8 @@ jQuery(document).ready(function($) {
             );
         };
         
-        if(parseFeed(indiaFeeds[i], '#rss-feed'+i) === true){
-            populateRssFeed();
-        };
+        parseFeed(indiaFeeds[i], '#rss-feed'+i);
+        populateRssFeed();
         
     }
      
@@ -77,7 +76,7 @@ jQuery(document).ready(function($) {
                 // the effect, which is used to let the entries appear
                 // default: 'show'
                 // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-                effect: 'slide',
+                effect: 'slideFastSynced',
 
                 // outer template for the html transformation
                 // default: "<ul>{entries}</ul>"
@@ -146,9 +145,6 @@ jQuery(document).ready(function($) {
     
 });
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 // YQL: https://developer.yahoo.com/yql/
@@ -179,11 +175,8 @@ function parseFeed(url, container) {
             
             // * show error message
             alert('Could not load RSS feed!');
-        }
-        
+        } 
     });
-    console.log("executing...");
-    return true;
 }
 
 
