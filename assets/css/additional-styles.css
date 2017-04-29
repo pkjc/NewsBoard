@@ -89,7 +89,7 @@ ul#navlist {
     width: 100%;
     position: relative;
     border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding-bottom: 5px;
 }
 
@@ -117,3 +117,30 @@ ul#navlist {
     background: #45c46f;
 }
 label{display: inherit;}
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    overflow: auto;
+    margin-bottom: 0px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: inherit;
+    background-color: transparent;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 14px 0;
+    margin-right: 25px;
+}
+.navbar-default .nav>li>a:hover{
+    text-decoration: none;
+}
+.navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #3AAA64;
+    text-decoration: underline;
+}
