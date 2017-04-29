@@ -70,9 +70,7 @@
  .section {
      margin-bottom: 5px;
  }
- .footer {
-     margin-top: 50px;
- }
+ 
 #navlist li a {
     text-decoration: underline;
 }
@@ -143,4 +141,19 @@ label{display: inherit;}
 .navbar-default .navbar-nav>li>a {
     color: #3AAA64;
     text-decoration: underline;
+}
+html{
+    min-height: 100%;
+    position: relative;
+}
+body{
+    margin-bottom:80px;
+}
+.footer {
+    margin-top: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
 }
