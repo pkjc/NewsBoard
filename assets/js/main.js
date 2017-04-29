@@ -12,41 +12,56 @@ jQuery(document).ready(function($) {
     
     //India feed loads by default
     for ( var i = 0; i < indiaFeeds.length; i++ ) {
+        
+        //Empty previous feeds
+        $("#rss-feed"+i).find("div").html("");
+        $("#rss-feed"+i).find("h2").remove();
+        
+        var populateRssFeed = function(){
+            $("#rss-feed"+i).rss(
 
-        $("#rss-feed"+i).rss(
+                //Change this to your own rss feeds
+                indiaFeeds[i],
 
-            //Change this to your own rss feeds
-            indiaFeeds[i],
+                {
+                // how many entries do you want?
+                // default: 4
+                // valid values: any integer
+                limit: feedCount,
 
-            {
-            // how many entries do you want?
-            // default: 4
-            // valid values: any integer
-            limit: feedCount,
+                // the effect, which is used to let the entries appear
+                // default: 'show'
+                // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
+                effect: 'slideSynced',
 
-            // the effect, which is used to let the entries appear
-            // default: 'show'
-            // valid values: 'show', 'slide', 'slideFast', 'slideSynced', 'slideFastSynced'
-            effect: 'slideFastSynced',
+                // outer template for the html transformation
+                // default: "<ul>{entries}</ul>"
+                // valid values: any string
+                layoutTemplate: "<div class=''>{entries}</div>",
 
-            // outer template for the html transformation
-            // default: "<ul>{entries}</ul>"
-            // valid values: any string
-            layoutTemplate: "<div class=''>{entries}</div>",
-
-            // inner template for each entry
-            // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
-            // valid values: any string
-            entryTemplate: entryTemp
-            }
-        );
+                // inner template for each entry
+                // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
+                // valid values: any string
+                entryTemplate: entryTemp
+                }
+            );
+        };
+        
+        if(parseFeed(indiaFeeds[i], '#rss-feed'+i) === true){
+            populateRssFeed();
+        };
+        
     }
-    
-  
+     
     $( "#india" ).click(function() {
         for ( var i = 0; i < indiaFeeds.length; i++ ) {
             
+            //Empty previous feeds
             $("#rss-feed"+i).find("div").html("");
+            $("#rss-feed"+i).find("h2").remove();
+            
+            //Populate Headings
+            parseFeed(indiaFeeds[i], '#rss-feed'+i);
             
             $("#rss-feed"+i).rss(
 
@@ -81,10 +96,11 @@ jQuery(document).ready(function($) {
     $( "#tech" ).click(function() {
         for ( var i = 0; i < techFeeds.length; i++ ) {
             
+            //Empty previous feeds
             $("#rss-feed"+i).find("div").html("");
+            $("#rss-feed"+i).find("h2").remove();
             
-            //$("#rss-feed"+i).find(".heading").html({feed});
-            console.log('{url}');
+            parseFeed(techFeeds[i], '#rss-feed'+i);
             
             $("#rss-feed"+i).rss(
 
@@ -117,7 +133,7 @@ jQuery(document).ready(function($) {
     });
     
     $( "#books" ).click(function() {
-       parseFeed('http://www.dnaindia.com/syndication/rss,catID-0.xml', '#rss-feed0');
+        
     });
     
     $( "#startups" ).click(function() {
@@ -139,37 +155,22 @@ jQuery(document).ready(function($) {
 // YQL Console: https://developer.yahoo.com/yql/console/
 
 function parseFeed(url, container) {
+    
     // yql query
     var query = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feednormalizer where url="' + url + '"') + '&format=json';
     
     // send request
     $.getJSON(query, function (data, status, errorThrown) {
+        
         // if successful... *
         if (status === 'success') {
+            
             // log object data in console
             console.log(data);
             
             // append feed link and title in container
-            $(container).append('<a href="' + url + '"><span class="iconicstroke-rss-alt"></span></a>');
-            $(container).append('<h1 class="feed">' + data.query.results.rss.channel.title + '</h1>');
-            
-            // for each entry... *
-            $.each(data.query.results.rss.channel.item, function (key, value) {
-                
-                // * build content snippet
-                var content = $(value.description).text().substring(0, 160);
-                if (value.description.length > content.length ) {
-                    content += ' ...';
-                }
-                
-                // * assign entry variables
-                var title = '<h3 class="title"><a href="' + value.link + '" target="_blank">' + value.title + '</a></h3>';
-                var snippet = '<p class="snippet">' + content + '</p>';
-                var entry = '<div class="entry">' + title + snippet + '</div>';
-                
-                // * append entire entry in container
-               // $(container).append(entry);
-            });
+            //$(container).append('<a href="' + url + '"><span class="iconicstroke-rss-alt"></span></a>');
+            $(container).prepend('<h2 class="heading">' + data.query.results.rss.channel.title + '</h2>');
             
         // if there's an error... *
         } else if (status === 'error' || status === 'parsererror') {
@@ -179,7 +180,10 @@ function parseFeed(url, container) {
             // * show error message
             alert('Could not load RSS feed!');
         }
+        
     });
+    console.log("executing...");
+    return true;
 }
 
 
