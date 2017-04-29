@@ -51,8 +51,8 @@ jQuery(document).ready(function($) {
         populateRssFeed();
         
     }
-     
-    $( "#india" ).click(function() {
+    
+    $('body').on('click', '#india', function() {
         for ( var i = 0; i < indiaFeeds.length; i++ ) {
             
             //Empty previous feeds
@@ -92,7 +92,7 @@ jQuery(document).ready(function($) {
         }
     });
     
-    $( "#tech" ).click(function() {
+    $('body').on('click', '#tech', function() {
         for ( var i = 0; i < techFeeds.length; i++ ) {
             
             //Empty previous feeds
@@ -131,16 +131,20 @@ jQuery(document).ready(function($) {
         }
     });
     
-    $( "#books" ).click(function() {
+    $('body').on('click', '#books', function() {
         
     });
     
-    $( "#startups" ).click(function() {
+    $('body').on('click', '#startups', function() {
         alert( "Handler for .click() called." );
     });
     
-    $( "#fitness" ).click(function() {
+    $('body').on('click', '#fitness', function() {
         alert( "Handler for .click() called." );
+    });
+    
+    $('body').on('click', '#fitness', function () {
+        console.log("yeahhhh!!! but this doesn't work for me :(");
     });
     
 });
