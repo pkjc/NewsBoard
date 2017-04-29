@@ -24,7 +24,7 @@
      padding-bottom: 15px;
  }
  .header {
-     padding: 10px 0;
+     padding: 10px 0 8px 0;
      background: #fff;
      border: none;
  }
@@ -43,8 +43,7 @@
      margin-bottom: 15px;
  }
  .header .btn {
-     margin-top: 25px;
-     font-weight: bold;
+    margin-top: -7px;
  }
  .sections-wrapper {
      padding-top: 30px;
@@ -59,13 +58,14 @@
  }
  .section .heading {
      margin-top: 0;
-     margin-bottom: 30px;
-     color: #545e69;
-     font-size: 24px;
-     font-weight: bold;
-     background: #ddd;
-     padding: 5px;
-     text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 22px;
+    font-weight: normal;
+    background: #ddd;
+    padding: 5px;
+    text-align: center;
+    font-family: Lato;
  }
  .section {
      margin-bottom: 5px;
@@ -73,3 +73,47 @@
  .footer {
      margin-top: 50px;
  }
+#navlist li a {
+    text-decoration: underline;
+}
+#navlist li a:hover {
+    text-decoration: none;
+}
+ul#navlist {
+    float: left;
+    display: block;
+    position: relative;
+    width: 50%;
+}
+.profile-content {
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.call{
+    margin-top: 2px;
+    border: 2px solid #58ca7e;
+    background: #58ca7e;
+    padding: 4px 15px !important;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    border-radius: 30px;
+    color: #fff;
+	font-size:15px;
+	text-transform:uppercase;
+	font-weight:bold;
+	letter-spacing:1px;
+}
+.call:hover{
+    color: #fff;
+    border: 2px solid #45c46f;
+    background: #45c46f;
+}
+label{display: inherit;}
