@@ -10,6 +10,19 @@ jQuery(document).ready(function($) {
     var startupsFeeds = ['Apple', 'Banana'];
     var fitnessFeeds = ['Apple', 'Banana'];
     
+    
+     //Random 5 stories
+    function randomStories (rssDiv){
+        
+        var headline = $(rssDiv).find('h3');
+        
+        //headline.prepend('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title">');
+        //headline.append('</h3></div></div><hr class="divider" />');
+        
+        $("#rss-feed6").append('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title">' + headline.html() + '</h3></div></div><hr class="divider" />');
+        
+    }
+    
     //India feed loads by default
     for ( var i = 0; i < indiaFeeds.length; i++ ) {
         
@@ -49,8 +62,15 @@ jQuery(document).ready(function($) {
         
         parseFeed(indiaFeeds[i], '#rss-feed'+i);
         populateRssFeed();
-        
     }
+    
+    //Collect latest headline from each feed
+    setTimeout(function(){ 
+        for ( var i = 0; i < indiaFeeds.length; i++ ){
+            $('#rss-feed'+i).find('h3').on('load', randomStories('#rss-feed'+i));
+        }                     
+    }, 2000);
+   
     
     $('body').on('click', '#india', function() {
         for ( var i = 0; i < indiaFeeds.length; i++ ) {
