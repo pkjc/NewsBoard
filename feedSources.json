@@ -1,0 +1,9 @@
+{
+    "indiaRssFeeds":[
+        "http://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+        "http://feeds.feedburner.com/ndtvnews-top-stories",
+        "http://www.dnaindia.com/syndication/rss,catID-0.xml",
+        "http://feeds.reuters.com/reuters/INtopNews",
+        "http://indianexpress.com/print/front-page/feed/"
+    ]
+}

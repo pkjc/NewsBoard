@@ -24,7 +24,7 @@
      padding-bottom: 15px;
  }
  .header {
-     padding: 10px 0 8px 0;
+     padding: 6px 0 4px 0;
      background: #fff;
      border: none;
  }
@@ -131,7 +131,7 @@ label{display: inherit;}
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 14px 0;
+    padding: 12px 0;
     margin-right: 25px;
 }
 .navbar-default .nav>li>a:hover{
@@ -144,6 +144,7 @@ label{display: inherit;}
 .navbar-default .navbar-nav>li>a {
     color: #3AAA64;
     text-decoration: underline;
+    font-size: 17px;
 }
 html{
     min-height: 100%;
