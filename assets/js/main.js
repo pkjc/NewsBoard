@@ -27,14 +27,17 @@ jQuery(document).ready(function($) {
     $.getJSON(url, function(dataFromJsonFile){
         jsonData = dataFromJsonFile;
         
-        //step 1: Load default feed
-        loadDefaultFeeds(jsonData);
-        
         //step 2: Remove previous content
         clearPriorContent();
+        
+        //step 1: Load default feed
+        loadDefaultFeeds(jsonData);
 
         //step 3: populate the latest stories block
         populateLatestStoriesBlock(jsonData.indiaRssFeeds.length);
+        
+        //step 4: populate feed source headers
+        populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "india");
     });
     
     $('body').on('click', '#india', function() {
@@ -50,6 +53,9 @@ jQuery(document).ready(function($) {
             
             //step 3: populate the latest stories block
             populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
+            
+            //step 4: populate feed source headers
+            populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "india");
         });
     });
     
@@ -59,13 +65,16 @@ jQuery(document).ready(function($) {
             jsonData = dataFromJsonFile;
 
             //step 1: Load default feed
-            populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "tech");
+            populateTopicFeed(jsonData.techRssFeeds.length, jsonData, "tech");
             
             //step 2: Remove previous content
             clearPriorContent();
             
             //step 3: populate the latest stories block
-            populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
+            populateLatestStoriesBlock(jsonData.techRssFeeds.length, jsonData.indiaRssFeeds);
+            
+            //step 4: populate feed source headers
+            populateFeedSrcHeaders(jsonData.techRssFeeds.length, jsonData, "tech");
         });
     });
     
@@ -95,17 +104,14 @@ function parseFeed(url, container) {
     // yql query
     var query = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feednormalizer where url="' + url + '"') + '&format=json';
     
+    //alert(query);
+    
     // send request
     $.getJSON(query, function (data, status, errorThrown) {
         
         // if successful... *
         if (status === 'success') {
             
-            // log object data in console
-            console.log(data);
-            
-            // append feed link and title in container
-            //$(container).append('<a href="' + url + '"><span class="iconicstroke-rss-alt"></span></a>');
             $(container).prepend('<h2 class="heading">' + data.query.results.rss.channel.title + '</h2>');
             
         // if there's an error... *
@@ -132,7 +138,7 @@ function gatherLatestStories (rssDiv){
 function populateLatestStoriesBlock(topicFeedLength){
     
     setTimeout(function(){ 
-        for ( var i = 1; i < topicFeedLength; i++ ){
+        for ( var i = 1; i < topicFeedLength - 2; i++ ){
             $('#rss-feed'+i).find('h3').on('load', gatherLatestStories('#rss-feed'+i));
         }                     
     }, 2000);
@@ -141,11 +147,11 @@ function populateLatestStoriesBlock(topicFeedLength){
 //India feed loads by default
 function loadDefaultFeeds(jsonData) {
     for ( var i = 0; i < jsonData.indiaRssFeeds.length; i++ ) {
-
+        console.log(jsonData.indiaRssFeeds.length);
         j = i+1;
+        
         //Empty previous feeds
         $("#rss-feed"+j).find("div").html("");
-        $("#rss-feed"+j).find("h2").remove();
 
         console.log("#rss-feed"+j);
         var populateRssFeed = function(){
@@ -178,7 +184,7 @@ function loadDefaultFeeds(jsonData) {
             );
         };
 
-        parseFeed(jsonData.indiaRssFeeds[i], '#rss-feed'+j);
+        //parseFeed(jsonData.indiaRssFeeds[i], '#rss-feed'+j);
         populateRssFeed();
     }
 } 
@@ -216,6 +222,39 @@ function getFeedsByTopic(topicFeedLength, jsonData, topic){
     return feeds;
 }
 
+//Get Feed Addresses By Topic for Headers
+function getFeedsByTopicForHeaders(topicFeedLength, jsonData, topic){
+    var feeds = [];
+    
+    if(topic === "india"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.indiaRssFeedSrcs[i];
+        }
+    }else if(topic === "tech"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.techRssFeedSrcs[i];
+        }
+    }else if(topic === "books"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.booksRssFeedSrcs[i];
+        }
+    }else if(topic === "startups"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.startupsRssFeedSrcs[i];
+        }
+    }else if(topic === "fitness"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.fitnessRssFeedSrcs[i];
+        }
+    }else if(topic === "food"){
+        for (var i = 0; i < topicFeedLength; i++){
+            feeds[i] = jsonData.foodRssFeedSrcs[i];
+        }
+    }
+    
+    return feeds;
+}
+
 //Generic Populate topic feed
 function populateTopicFeed(topicFeedLength, jsonData, topic){
     
@@ -228,10 +267,7 @@ function populateTopicFeed(topicFeedLength, jsonData, topic){
         
         //Empty previous feeds
         $("#rss-feed"+j).find("div").html("");
-        $("#rss-feed"+j).find("h2").remove();
-
-        //Populate Headings
-        parseFeed(feeds[i], '#rss-feed'+j);
+        //$("#rss-feed"+j).find("h2").remove();
 
         $("#rss-feed"+j).rss(
 
@@ -266,6 +302,18 @@ function populateTopicFeed(topicFeedLength, jsonData, topic){
 function clearPriorContent(){
     $("#rss-feed0").find("div").remove();
     $("#rss-feed0").find(".divider").remove();
+}
+
+function populateFeedSrcHeaders(topicFeedLength, jsonData, topic){
+    
+    var feeds = [];
+    feeds = getFeedsByTopicForHeaders(topicFeedLength, jsonData, topic);
+    
+    for(var i = 0; i < topicFeedLength;i++){
+        j = i+1;
+        $("#rss-feed"+j).find('h2').remove();
+        $("#rss-feed"+j).prepend('<h2 class="heading">' + feeds[i] + '</h2>');
+    }
 }
 
 

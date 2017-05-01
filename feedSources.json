@@ -1,9 +1,42 @@
 {
     "indiaRssFeeds":[
-        "http://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+        "http://www.loksatta.com/vruthanta/feed",
         "http://feeds.feedburner.com/ndtvnews-top-stories",
         "http://www.dnaindia.com/syndication/rss,catID-0.xml",
         "http://feeds.reuters.com/reuters/INtopNews",
-        "http://indianexpress.com/print/front-page/feed/"
+        "http://indianexpress.com/print/front-page/feed/",
+        "http://www.thehindu.com/?service=rss",
+        "http://www.ibnlive.com/xml/rss/india.xml",
+        "http://timesofindia.indiatimes.com/rssfeedstopstories.cms"
+    ],
+    "indiaRssFeedSrcs":[
+        "Loksatta",
+        "NDTV",
+        "DNA",
+        "Reuters India",
+        "Indian Express",
+        "The Hindu",
+        "IBN Live",
+        "Times of India"
+    ],
+    "techRssFeeds":[
+        "https://www.wired.com/feed/",
+        "http://www.techradar.com/rss/news/world-of-tech",
+        "https://www.cnet.com/rss/news/",
+        "https://www.technologyreview.com/topnews.rss",
+        "http://www.computerweekly.com/rss/Latest-IT-news.xml",
+        "http://www.digitaltrends.com/home/feed/",
+        "http://www.theverge.com/web/rss/index.xml",
+        "http://feeds.arstechnica.com/arstechnica/index"
+    ],
+    "techRssFeedSrcs":[
+        "Wired",
+        "TechRadar",
+        "CNET",
+        "Technology Review",
+        "Computer Weekly",
+        "Digital Trends",
+        "The Verge",
+        "Ars Technica"
     ]
 }

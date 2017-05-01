@@ -1,9 +1,9 @@
  .latest .item .title {
-     font-size: 21px;
-     margin-top: 0;
-     line-height: 1.2;
-     text-transform: capitalize;
-     margin-bottom: 0;
+    font-size: 18px;
+    margin-top: 0;
+    line-height: 1.35;
+    text-transform: capitalize;
+    margin-bottom: 0;
  }
  h1,
  h2,
@@ -50,11 +50,11 @@
      padding-bottom: 0px;
  }
  .latest .divider {
-     margin-bottom: 15px;
-     margin-top: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
  }
  .latest .item {
-     margin-bottom: 15px;
+     margin-bottom: 10px;
  }
  .section .heading {
   margin-top: -30px;
@@ -70,8 +70,10 @@
     font-family: Lato;
  }
  .section {
-     margin-bottom: 5px;
-     box-shadow: 2px 2px 4px #bbb;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 4px #bbb;
+    background: #fff;
+    height: 480px;
  }
  
 #navlist li a {
