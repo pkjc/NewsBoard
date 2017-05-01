@@ -126,6 +126,7 @@ label{display: inherit;}
     border-color: transparent;
     overflow: auto;
     margin-bottom: 0px;
+    overflow: hidden;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: inherit;
