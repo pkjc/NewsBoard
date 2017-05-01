@@ -38,5 +38,85 @@
         "Digital Trends",
         "The Verge",
         "Ars Technica"
+    ],
+    "startupsRssFeeds":[
+        "https://www.reddit.com/r/startups+Futurology/.rss",
+        "http://feeds.feedburner.com/entrepreneur/latest",
+        "http://feeds.feedburner.com/TechCrunch/startups",
+        "http://feeds.feedburner.com/venturebeat/SZYF",
+        "http://feeds.feedburner.com/guykawasaki/Gypm",
+        "http://www.geekwire.com/startups/feed/",
+        "http://tech.economictimes.indiatimes.com/rss/startups",
+        "https://bizztor.com/feed/"
+    ],
+    "startupsRssFeedSrcs":[
+        "Reddit",
+        "Entrepreneur",
+        "Techcrunch",
+        "VentureBeat",
+        "Guy Kawasaki",
+        "GeekWire",
+        "Economic Times",
+        "Bizztor"
+    ],
+    "booksRssFeeds":[
+        "http://feeds.feedburner.com/themillionsblog/fedw",
+        "http://www.nytimes.com/services/xml/rss/nyt/Books.xml",
+        "https://electricliterature.com/feed",
+        "http://www.newyorker.com/feed/books/page-turner",
+        "http://bookriot.com/feed/",
+        "https://thewritelife.com/feed/",
+        "https://www.buzzfeed.com/books.xml",
+        "https://janefriedman.com/feed/"
+    ],
+    "booksRssFeedSrcs":[
+        "The Millions",
+        "NY Times",
+        "Electric Literature",
+        "New Yorker Page Turner",
+        "Book Riot",
+        "The Write Life",
+        "Buzzfeed Books",
+        "Jane Friedman"
+    ],
+    "fitnessRssFeeds":[
+        "http://greatist.com/rss.xml",
+        "http://feeds.feedburner.com/Fitness-Articles",
+        "https://www.bodybuilding.com/rss/articles",
+        "http://www.muscleandfitness.com/rss.xml",
+        "http://feeds.feedburner.com/burnthefatblogfeeds",
+        "http://yogadork.com/feed/",
+        "http://www.negharfonooni.com/feed/",
+        "http://www.runtothefinish.com/feed/",
+    ],
+    "fitnessRssFeedSrcs":[
+        "The Greatist",
+        "FitDay",
+        "Body Building",
+        "Muscle And Fitness",
+        "Burn The Fat",
+        "Yoga Dork",
+        "Neghar Fonooni",
+        "Run To The Finish"
+    ],
+    "foodRssFeeds":[
+        "https://www.buzzfeed.com/food.xml",
+        "http://minimalistbaker.com/feed/",
+        "http://kblog.lunchboxbunch.com/feeds/posts/default?alt=rss",
+        "http://hebbarskitchen.com/feed/",
+        "http://fitfoodiefinds.com/feed/",
+        "http://indianhealthyrecipes.com/feed/",
+        "http://rss.tasteofhome.com/feed-recipe-of-the-day.rss",
+        "http://feedproxy.google.com/elise/simplyrecipes"
+    ],
+    "foodRssFeedSrcs":[
+        "Buzzfeed Food",
+        "Minimalist Baker",
+        "LunchBoxBunch",
+        "Hebbar's Kitchen",
+        "FitFoodieFinds",
+        "Indian Healthy Recipes",
+        "Taste of Home",
+        "Simply Recipes"
     ]
 }

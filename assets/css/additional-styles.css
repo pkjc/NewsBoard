@@ -74,6 +74,7 @@
     box-shadow: 2px 2px 4px #bbb;
     background: #fff;
     height: 480px;
+    overflow-y: auto;
  }
  
 #navlist li a {
