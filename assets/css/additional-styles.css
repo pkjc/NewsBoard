@@ -1,7 +1,7 @@
  .latest .item .title {
-    font-size: 18px;
+    font-size: 17px;
     margin-top: 0;
-    line-height: 1.35;
+    line-height: 1.3;
     text-transform: capitalize;
     margin-bottom: 0;
  }
@@ -30,7 +30,7 @@
  }
  .header .profile-content .name {
      color: #49515a;
-     font-size: 32px;
+     font-size: 28px;
      margin-bottom: 5px;
      margin-top: 15px;
  }
@@ -38,7 +38,7 @@
      color: #778492;
      font-family: "Lato", arial, sans-serif;
      font-weight: 400;
-     font-size: 18px;
+     font-size: 16px;
      margin-top: 0;
      margin-bottom: 15px;
  }
@@ -62,7 +62,7 @@
     margin-right: -30px;
     margin-bottom: 30px;
     color: #333;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: normal;
     background: #f3f3f3;
     padding: 12px 0;
@@ -148,7 +148,7 @@ label{display: inherit;}
 .navbar-default .navbar-nav>li>a {
     color: #3AAA64;
     text-decoration: underline;
-    font-size: 17px;
+    font-size: 16px;
 }
 html{
     min-height: 100%;
