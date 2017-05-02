@@ -1,22 +1,22 @@
 {
     "indiaRssFeeds":[
-        "http://www.loksatta.com/vruthanta/feed",
+        "http://www.ibnlive.com/xml/rss/india.xml",
         "http://feeds.feedburner.com/ndtvnews-top-stories",
         "http://www.dnaindia.com/syndication/rss,catID-0.xml",
         "http://feeds.reuters.com/reuters/INtopNews",
         "http://indianexpress.com/print/front-page/feed/",
         "http://www.thehindu.com/?service=rss",
-        "http://www.ibnlive.com/xml/rss/india.xml",
+        "http://www.loksatta.com/vruthanta/feed",
         "http://timesofindia.indiatimes.com/rssfeedstopstories.cms"
     ],
     "indiaRssFeedSrcs":[
-        "Loksatta",
+        "IBN Live",
         "NDTV",
         "DNA",
         "Reuters India",
         "Indian Express",
         "The Hindu",
-        "IBN Live",
+        "Loksatta",
         "Times of India"
     ],
     "techRssFeeds":[
@@ -80,24 +80,24 @@
         "Jane Friedman"
     ],
     "fitnessRssFeeds":[
-        "http://greatist.com/rss.xml",
+        "http://www.runtothefinish.com/feed/",
         "http://feeds.feedburner.com/Fitness-Articles",
         "https://www.bodybuilding.com/rss/articles",
         "http://www.muscleandfitness.com/rss.xml",
         "http://feeds.feedburner.com/burnthefatblogfeeds",
         "http://yogadork.com/feed/",
         "http://www.negharfonooni.com/feed/",
-        "http://www.runtothefinish.com/feed/"
+        "http://greatist.com/rss.xml"
     ],
     "fitnessRssFeedSrcs":[
-        "The Greatist",
+        "Run To The Finish",
         "FitDay",
         "Body Building",
         "Muscle And Fitness",
         "Burn The Fat",
         "Yoga Dork",
         "Neghar Fonooni",
-        "Run To The Finish"
+        "The Greatist"
     ],
     "foodRssFeeds":[
         "https://www.buzzfeed.com/food.xml",
