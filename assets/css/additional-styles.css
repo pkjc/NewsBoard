@@ -5,6 +5,9 @@
     text-transform: capitalize;
     margin-bottom: 0;
  }
+ .navbar {
+    min-height: 40px;
+}
  h1,
  h2,
  h3,
@@ -24,7 +27,7 @@
      padding-bottom: 15px;
  }
  .header {
-     padding: 6px 0 4px 0;
+     padding: 0;
      background: #fff;
      border: none;
  }
@@ -73,10 +76,8 @@
     margin-bottom: 5px;
     box-shadow: 2px 2px 4px #bbb;
     background: #fff;
-    height: 480px;
-    overflow-y: auto;
  }
- 
+
 #navlist li a {
     text-decoration: underline;
 }
@@ -135,8 +136,8 @@ label{display: inherit;}
 .nav>li>a {
     position: relative;
     display: block;
-    padding: 12px 0;
-    margin-right: 25px;
+    padding: 5px 0;
+    margin-right: 15px;
 }
 .navbar-default .nav>li>a:hover{
     text-decoration: none;
