@@ -7,7 +7,7 @@
 */
 /* ======= Base ======= */
 body {
-  font-family: 'Lato', arial, sans-serif;
+  font-family: 'Muli', arial, sans-serif;
   color: #434343;
   background: #DAE3E7;
   font-size: 16px;
@@ -105,6 +105,14 @@ a.dotted-link:hover {
     overflow-y: auto;
     overflow-x: hidden;
     padding:0 30px;
+}
+.newspointer{
+    font-size:12px;
+    margin-top: 3px;
+}
+.title{
+    float: right;
+    width: 95%;
 }
 /*
 iframe {

@@ -7,7 +7,7 @@ var layoutTemplate = `<div class='entriesHolder'>{entries}</div>`;
 var entryTemp =  `
     <div class="item row">
         <div class="desc col-md-12 col-sm-12 col-xs-12">
-        <h3 class="title"><a href="{url}" target="_blank">{title}</a></h3>
+        <span>-</span><h3 class="title"><a href="{url}" target="_blank">{title}</a></h3>
         </div>
     </div>
     <hr class="divider" />`;
@@ -28,6 +28,7 @@ var jsonData;
 
 jQuery(document).ready(function($) {
     console.log("In");
+
     //Get data from JSON file
     $.getJSON(url, function(dataFromJsonFile){
 
@@ -176,14 +177,12 @@ function parseFeed(url, container) {
     // yql query
     var query = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feednormalizer where url="' + url + '"') + '&format=json';
 
-    //alert(query);
-
     // send request
     $.getJSON(query, function (data, status, errorThrown) {
 
         // if successful... *
         if (status === 'success') {
-
+            console.log("THUMB === > " + data.query.results.rss.channel.item.thumbnail);
             $(container).prepend('<h2 class="heading">' + data.query.results.rss.channel.title + '</h2>');
 
         // if there's an error... *
@@ -202,7 +201,7 @@ function gatherLatestStories (rssDiv){
 
     var headline = $(rssDiv).find('h3');
 
-    $("#rss-feed0 .entriesHolder").append('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title">' + headline.html() + '</h3></div></div><hr class="divider" />');
+    $("#rss-feed0 .entriesHolder").append('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><span>-</span><h3 class="title">' + headline.html() + '</h3></div></div><hr class="divider" />');
 
 }
 
