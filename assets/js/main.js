@@ -3,9 +3,18 @@
 //Variable Declarations//
 
 /////////////////////////////////////////////////////////////////////////////////////////////
-
-var entryTemp =  '<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title"><a href="{url}" target="_blank">{title}</a></h3></div></div><hr class="divider" />';
-var temphold = '<p>{shortBodyPlain}</p><a class="more-link" href="{url}" target="_blank">Read more <i class="fa fa-long-arrow-right"></i></a>';
+var layoutTemplate = `<div class='entriesHolder'>{entries}</div>`;
+var entryTemp =  `
+    <div class="item row">
+        <div class="desc col-md-12 col-sm-12 col-xs-12">
+        <h3 class="title"><a href="{url}" target="_blank">{title}</a></h3>
+        </div>
+    </div>
+    <hr class="divider" />`;
+var temphold = `
+    <p>{shortBodyPlain}</p>
+    <a class="more-link" href="{url}" target="_blank">Read more <i class="fa fa-long-arrow-right"></i>
+    </a>`;
 var j = 0;
 var feedCount = 5;
 var url = "feedSources.json";
@@ -21,24 +30,24 @@ jQuery(document).ready(function($) {
     console.log("In");
     //Get data from JSON file
     $.getJSON(url, function(dataFromJsonFile){
-        
+
         console.log("In 1");
-        
+
         jsonData = dataFromJsonFile;
-        
+
         //step 1: Remove previous content
         clearPriorContent();
-        
+
         //step 2: Load default feed
         loadDefaultFeeds(jsonData, function(){
            //step 3: populate the latest stories block
-            populateLatestStoriesBlock(jsonData.indiaRssFeeds.length); 
+            populateLatestStoriesBlock(jsonData.indiaRssFeeds.length);
         });
-        
+
         //step 4: populate feed source headers
         populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "india");
     });
-    
+
     $('body').on('click', '#india', function() {
        //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -46,18 +55,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "india", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "india");
         });
     });
-    
+
     $('body').on('click', '#tech', function() {
         //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -65,18 +74,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "tech", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "tech");
         });
     });
-    
+
     $('body').on('click', '#books', function() {
         //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -84,18 +93,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "books", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "books");
         });
     });
-    
+
     $('body').on('click', '#startups', function() {
        //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -103,18 +112,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "startups", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "startups");
         });
     });
-    
+
     $('body').on('click', '#fitness', function() {
         //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -122,18 +131,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "fitness", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "fitness");
         });
     });
-    
+
     $('body').on('click', '#food', function() {
        //Get data from JSON file
         $.getJSON(url, function(dataFromJsonFile){
@@ -141,18 +150,18 @@ jQuery(document).ready(function($) {
 
             //step 1: Remove previous content
             clearPriorContent();
-            
+
             //step 2: Load default feed
             populateTopicFeed(jsonData.indiaRssFeeds.length, jsonData, "food", function(){
                 //step 3: populate the latest stories block
                 populateLatestStoriesBlock(jsonData.indiaRssFeeds.length, jsonData.indiaRssFeeds);
             });
-            
+
             //step 4: populate feed source headers
             populateFeedSrcHeaders(jsonData.indiaRssFeeds.length, jsonData, "food");
         });
     });
-    
+
 });
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,28 +172,28 @@ jQuery(document).ready(function($) {
 
 //Returns feed source title
 function parseFeed(url, container) {
-    
+
     // yql query
     var query = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from feednormalizer where url="' + url + '"') + '&format=json';
-    
+
     //alert(query);
-    
+
     // send request
     $.getJSON(query, function (data, status, errorThrown) {
-        
+
         // if successful... *
         if (status === 'success') {
-            
+
             $(container).prepend('<h2 class="heading">' + data.query.results.rss.channel.title + '</h2>');
-            
+
         // if there's an error... *
         } else if (status === 'error' || status === 'parsererror') {
             // * log error message in console
             console.log(errorThrown);
-            
+
             // * show error message
             alert('Could not load RSS feed!');
-        } 
+        }
     });
 }
 
@@ -192,27 +201,27 @@ function parseFeed(url, container) {
 function gatherLatestStories (rssDiv){
 
     var headline = $(rssDiv).find('h3');
-    
-    $("#rss-feed0").append('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title">' + headline.html() + '</h3></div></div><hr class="divider" />');
+
+    $("#rss-feed0 .entriesHolder").append('<div class="item row"><div class="desc col-md-12 col-sm-12 col-xs-12"><h3 class="title">' + headline.html() + '</h3></div></div><hr class="divider" />');
 
 }
 
 //Populate latest headline from each feed
 function populateLatestStoriesBlock(topicFeedLength){
-    
-    setTimeout(function(){ 
+
+    setTimeout(function(){
         for ( var i = 1; i < topicFeedLength - 2; i++ ){
             $('#rss-feed'+i).find('h3').on('load', gatherLatestStories('#rss-feed'+i));
-        }                     
+        }
     }, 2000);
 }
 
 //India feed loads by default
 function loadDefaultFeeds(jsonData, callback) {
     for ( var i = 0; i < jsonData.indiaRssFeeds.length; i++ ) {
-        
+
         j = i+1;
-        
+
         //Empty previous feeds
         $("#rss-feed"+j).find("div").html("");
 
@@ -237,7 +246,7 @@ function loadDefaultFeeds(jsonData, callback) {
                 // outer template for the html transformation
                 // default: "<ul>{entries}</ul>"
                 // valid values: any string
-                layoutTemplate: "<div class=''>{entries}</div>",
+                layoutTemplate: layoutTemplate,
 
                 // inner template for each entry
                 // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
@@ -250,12 +259,12 @@ function loadDefaultFeeds(jsonData, callback) {
         populateRssFeed();
     }
     callback();
-} 
+}
 
 //Get Feed Addresses By Topic
 function getFeedsByTopic(topicFeedLength, jsonData, topic){
     var feeds = [];
-    
+
     if(topic === "india"){
         for (var i = 0; i < topicFeedLength; i++){
             feeds[i] = jsonData.indiaRssFeeds[i];
@@ -281,14 +290,14 @@ function getFeedsByTopic(topicFeedLength, jsonData, topic){
             feeds[i] = jsonData.foodRssFeeds[i];
         }
     }
-    
+
     return feeds;
 }
 
 //Get Feed Addresses By Topic for Headers
 function getFeedsByTopicForHeaders(topicFeedLength, jsonData, topic){
     var feeds = [];
-    
+
     if(topic === "india"){
         for (var i = 0; i < topicFeedLength; i++){
             feeds[i] = jsonData.indiaRssFeedSrcs[i];
@@ -314,20 +323,20 @@ function getFeedsByTopicForHeaders(topicFeedLength, jsonData, topic){
             feeds[i] = jsonData.foodRssFeedSrcs[i];
         }
     }
-    
+
     return feeds;
 }
 
 //Generic Populate topic feed
 function populateTopicFeed(topicFeedLength, jsonData, topic, callback){
-    
+
     var feeds = [];
-    
+
     feeds = getFeedsByTopic(topicFeedLength, jsonData, topic);
-    
+
     for ( var i = 0; i < topicFeedLength; i++ ) {
         j = i+1;
-        
+
         //Empty previous feeds
         $("#rss-feed"+j).find("div").html("");
         //$("#rss-feed"+j).find("h2").remove();
@@ -351,7 +360,7 @@ function populateTopicFeed(topicFeedLength, jsonData, topic, callback){
             // outer template for the html transformation
             // default: "<ul>{entries}</ul>"
             // valid values: any string
-            layoutTemplate: '<div class="">{entries}</div>',
+            layoutTemplate: layoutTemplate,
 
             // inner template for each entry
             // default: '<li><a href="{url}">[{author}@{date}] {title}</a><br/>{shortBodyPlain}</li>'
@@ -364,27 +373,18 @@ function populateTopicFeed(topicFeedLength, jsonData, topic, callback){
 }
 
 function clearPriorContent(){
-    $("#rss-feed0").find("div").remove();
-    $("#rss-feed0").find(".divider").remove();
+    $("#rss-feed0 .entriesHolder").find("div").remove();
+    $("#rss-feed0 .entriesHolder").find(".divider").remove();
 }
 
 function populateFeedSrcHeaders(topicFeedLength, jsonData, topic){
-    
+
     var feeds = [];
     feeds = getFeedsByTopicForHeaders(topicFeedLength, jsonData, topic);
-    
+
     for(var i = 0; i < topicFeedLength;i++){
         j = i+1;
         $("#rss-feed"+j).find('h2').remove();
         $("#rss-feed"+j).prepend('<h2 class="heading">' + feeds[i] + '</h2>');
     }
 }
-
-
-
-
-
-
-
-
-

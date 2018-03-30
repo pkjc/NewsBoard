@@ -1,6 +1,6 @@
 {
     "indiaRssFeeds":[
-        "http://www.ibnlive.com/xml/rss/india.xml",
+        "https://www.news18.com/rss/india.xml",
         "http://feeds.feedburner.com/ndtvnews-top-stories",
         "http://www.dnaindia.com/syndication/rss,catID-0.xml",
         "http://feeds.reuters.com/reuters/INtopNews",
@@ -10,7 +10,7 @@
         "http://timesofindia.indiatimes.com/rssfeedstopstories.cms"
     ],
     "indiaRssFeedSrcs":[
-        "IBN Live",
+        "News 18",
         "NDTV",
         "DNA",
         "Reuters India",
